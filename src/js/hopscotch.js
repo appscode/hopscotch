@@ -1899,6 +1899,12 @@
       }
 
       // Find the current step we should begin the tour on, and then actually start the tour.
+      if (!currTour.steps[currStepNum].target) {
+        if (tour.steps[currStepNum].target) {
+          currTour.steps[currStepNum].target = tour.steps[currStepNum].target;
+        }
+      }
+
       findStartingStep(currStepNum, skippedSteps, function(stepNum) {
         var target = (stepNum !== -1) && utils.getStepTarget(currTour.steps[stepNum]);
 
